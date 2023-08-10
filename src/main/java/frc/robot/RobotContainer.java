@@ -67,13 +67,13 @@ public class RobotContainer {
         s_Swerve.setDefaultCommand(
             new TeleopSwerve(
                 s_Swerve, 
-                () -> -theactualgoodone.getRawAxis(translationAxis) * 0.2, 
-                () -> -theactualgoodone.getRawAxis(strafeAxis) * 0.2, 
-                () -> -theactualgoodone.getRawAxis(rotationAxis) * 0.2, 
+                () -> -theactualgoodone.getRawAxis(translationAxis) * 0.6, 
+                () -> -theactualgoodone.getRawAxis(strafeAxis) * 0.6, 
+                () -> -theactualgoodone.getRawAxis(rotationAxis) * 0.6, 
                 () -> robotCentric.getAsBoolean()
             )
         );
-
+ 
         s_Arm.setDefaultCommand(new ArmMove(s_Arm, () -> operator.getRawAxis(clawAxis)));
 
         s_Intake.setDefaultCommand(new IntakeMove(s_Intake, () -> operator.getRawAxis(forwardAxis), () -> operator.getRawAxis(reverseAxis)));
