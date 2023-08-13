@@ -31,6 +31,24 @@ public class Intake extends SubsystemBase {
 
     public void IntakeCmd(double input)
     {
+        boolean intakeForward = false;
+
+        if (input > 0.1)
+        {
+            intakeForward = true;
+        }
+        else if (input < -0.1)
+        {
+            intakeForward = false;
+        }
+        else if (intakeForward)
+        {
+            input = 0.1;
+        }
+        else 
+        {
+            input = -0.1;
+        }
         intake.set(input);
     }
 }

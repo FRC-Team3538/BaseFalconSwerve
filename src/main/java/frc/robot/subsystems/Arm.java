@@ -34,5 +34,10 @@ public class Arm extends SubsystemBase {
     {
         claw.set(input);
     }
+
+    public void ClawUp()
+    {
+        
+    }
 }
 
