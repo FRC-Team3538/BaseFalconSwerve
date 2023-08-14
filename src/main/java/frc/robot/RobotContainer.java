@@ -67,16 +67,16 @@ public class RobotContainer {
         s_Swerve.setDefaultCommand(
             new TeleopSwerve(
                 s_Swerve, 
-                () -> -theactualgoodone.getRawAxis(translationAxis) * 0.6, 
-                () -> -theactualgoodone.getRawAxis(strafeAxis) * 0.6, 
-                () -> -theactualgoodone.getRawAxis(rotationAxis) * 0.6, 
+                () -> -theactualgoodone.getRawAxis(translationAxis) * 1.0, 
+                () -> -theactualgoodone.getRawAxis(strafeAxis) * 1.0, 
+                () -> -theactualgoodone.getRawAxis(rotationAxis) * 1.0, 
                 () -> robotCentric.getAsBoolean()
             )
         );
  
-        s_Arm.setDefaultCommand(new ArmMove(s_Arm, () -> operator.getRawAxis(clawAxis)));
+        s_Arm.setDefaultCommand(new ArmMove(s_Arm, () -> operator.getRawAxis(clawAxis) * 0.7));
 
-        s_Intake.setDefaultCommand(new IntakeMove(s_Intake, () -> operator.getRawAxis(forwardAxis), () -> operator.getRawAxis(reverseAxis)));
+        s_Intake.setDefaultCommand(new IntakeMove(s_Intake, () -> operator.getRawAxis(forwardAxis) * 0.5, () -> operator.getRawAxis(reverseAxis) * 0.5));
 
         // Configure the button bindings
         configureButtonBindings();
