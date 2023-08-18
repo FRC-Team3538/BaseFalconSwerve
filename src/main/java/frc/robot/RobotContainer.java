@@ -76,14 +76,14 @@ public class RobotContainer {
  
         s_Arm.setDefaultCommand(new ArmMove(s_Arm, () -> operator.getRawAxis(clawAxis) * 0.7));
 
-        s_Intake.setDefaultCommand(new IntakeMove(s_Intake, () -> operator.getRawAxis(forwardAxis) * 0.5, () -> operator.getRawAxis(reverseAxis) * 0.5));
+        s_Intake.setDefaultCommand(new IntakeMove(s_Intake, () -> operator.getRawAxis(forwardAxis), () -> operator.getRawAxis(reverseAxis)));
 
         // Configure the button bindings
         configureButtonBindings();
 
     }
 
-    /**
+    /**^
      * Use this method to define your button->command mappings. Buttons can be created by
      * instantiating a {@link GenericHID} or one of its subclasses ({@link
      * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link

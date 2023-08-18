@@ -9,6 +9,7 @@ import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 
 import com.ctre.phoenix.sensors.Pigeon2;
+import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
@@ -26,7 +27,9 @@ public class Intake extends SubsystemBase {
 
     public Intake() {
         intake.configFactoryDefault();
-      
+    }
+
+    public void periodic() {
     }
 
     public void IntakeCmd(double input)

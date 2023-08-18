@@ -36,7 +36,7 @@ public class IntakeMove extends CommandBase {
         double reverseVal = MathUtil.applyDeadband(reverse.getAsDouble(), (Constants.stickDeadband)/2.0);
 
 
-        s_Intake.IntakeCmd(forwardVal - reverseVal);
+        s_Intake.IntakeCmd(forwardVal * 0.3 - reverseVal * 0.3);
         /* Drive */
         // s_Swerve.drive(
         //     new Translation2d(translationVal, strafeVal).times(Constants.Swerve.maxSpeed), 

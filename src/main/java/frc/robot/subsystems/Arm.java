@@ -9,6 +9,7 @@ import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 
 import com.ctre.phoenix.sensors.Pigeon2;
+import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
@@ -26,9 +27,13 @@ public class Arm extends SubsystemBase {
 
     public Arm() {
         claw.configFactoryDefault();
-      
+        claw.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, 10, 15, 1));
     }
+    public void periodic() {
+        SmartDashboard.putNumber("Arm Current", claw.getSupplyCurrent());
+        SmartDashboard.putNumber("Arm Position", claw.getSelectedSensorPosition());
 
+    }
 
     public void ClawCmd(double input)
     {
